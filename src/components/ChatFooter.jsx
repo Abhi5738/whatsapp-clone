@@ -1,15 +1,28 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import {
+  Alert,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from "react-native";
 import VectorIcon from "../utils/VectorIcon";
 import { Colors } from "../theme/Colors";
 
 const ChatFooter = () => {
-  const [sendMessage, setSendMessage] = useState(false);
-  const [enable, setEnable] = useState(false);
+  const [message, setMessage] = useState("");
+  const [sendEnable, setSendEnable] = useState(false);
 
   const changeHandler = (value) => {
-    setSendMessage(value);
-    setEnable(true);
+    setMessage(value);
+    setSendEnable(true);
+  };
+
+  const onSend = () => {
+    setMessage("");
+    setSendEnable(false);
+    Alert.alert("sent Succesfully Msg:", message);
   };
   return (
     <View style={Styles.container}>
@@ -26,10 +39,11 @@ const ChatFooter = () => {
             style={Styles.inputBox}
             placeholderTextColor={Colors.textGrey}
             onChangeText={(value) => changeHandler(value)}
+            value={message}
           />
         </View>
         <View style={Styles.threeIcon}>
-          {enable ? (
+          {sendEnable ? (
             <Text style={{ marginHorizontal: 20 }}></Text>
           ) : (
             <>
@@ -57,13 +71,15 @@ const ChatFooter = () => {
         </View>
       </View>
       <View style={Styles.rightContainer}>
-        {enable ? (
-          <VectorIcon
-            name="send"
-            type="MaterialCommunityIcons"
-            size={24}
-            color={Colors.white}
-          />
+        {sendEnable ? (
+          <TouchableOpacity onPress={onSend}>
+            <VectorIcon
+              name="send"
+              type="MaterialCommunityIcons"
+              size={24}
+              color={Colors.white}
+            />
+          </TouchableOpacity>
         ) : (
           <VectorIcon
             name="microphone"
@@ -84,6 +100,7 @@ const Styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-around",
+    
   },
   inputBox: {
     width: 180,
