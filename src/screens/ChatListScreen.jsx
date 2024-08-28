@@ -6,7 +6,7 @@ import { Colors } from "../theme/Colors";
 const ChatListScreen = () => {
   return (
     <View style={Styles.container}>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <ChatList />
       </ScrollView>
       <TouchableOpacity style={Styles.contactIcon}>

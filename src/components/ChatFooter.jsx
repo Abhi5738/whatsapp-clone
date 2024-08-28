@@ -37,6 +37,7 @@ const ChatFooter = () => {
           <TextInput
             placeholder="Message"
             style={Styles.inputBox}
+            multiline
             placeholderTextColor={Colors.textGrey}
             onChangeText={(value) => changeHandler(value)}
             value={message}
@@ -95,40 +96,43 @@ const ChatFooter = () => {
 
 const Styles = StyleSheet.create({
   container: {
-    backgroundColor: Colors.black,
-    paddingVertical: 12,
+    paddingVertical: 2,
     flexDirection: "row",
     alignItems: "center",
+    textAlign: "center",
     justifyContent: "space-around",
-    
   },
-  inputBox: {
-    width: 180,
-    fontSize: 17,
-    color: Colors.white,
-  },
+
   leftContainer: {
     width: "85%",
     flexDirection: "row",
     backgroundColor: Colors.primaryColor,
     padding: 7,
     borderRadius: 30,
-    paddingVertical: 10,
+    alignItems: "center",
+    justifyContent: "space-between",
   },
   row: {
     flexDirection: "row",
-    alignItems: "center",
-    gap: 7,
+    alignItems: "flex-end",
+    gap: 5,
   },
   threeIcon: {
     flexDirection: "row",
-    gap: 20,
-    alignItems: "center",
+    gap: 8,
+    alignItems: "flex-end",
   },
   rightContainer: {
     backgroundColor: Colors.teal,
     padding: 10,
     borderRadius: 100,
+  },
+  inputBox: {
+    width: 200,
+    fontSize: 17,
+    color: Colors.white,
+    color: Colors.white,
+    fontSize: 16,
   },
 });
 

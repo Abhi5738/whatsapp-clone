@@ -1,5 +1,5 @@
 import React from "react";
-import { Feather } from "@expo/vector-icons";
+import { Feather, FontAwesome5, Fontisto } from "@expo/vector-icons";
 import { EvilIcons } from "@expo/vector-icons";
 import { Entypo } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
@@ -14,9 +14,12 @@ const iconSet = {
   Entypo,
   Ionicons,
   FontAwesome,
+  FontAwesome5,
   MaterialCommunityIcons,
   AntDesign,
   MaterialIcons,
+  Fontisto,
+  AntDesign,
 };
 
 function VectorIcon({ type, name, color, size }) {

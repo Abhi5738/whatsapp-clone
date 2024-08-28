@@ -14,7 +14,7 @@ const ChatHeader = () => {
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <VectorIcon
             type="Ionicons"
-            name="arrow-back"d
+            name="arrow-back"
             color={Colors.white}
             size={24}
           />
