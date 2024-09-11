@@ -8,8 +8,9 @@ const RecentStatus = () => {
   const [showStatusModal, setShowStatusModal] = useState(true);
   return (
     <View>
-      <Text style={Styles.recentUpdates}>RecentStatus </Text>
+      <Text style={Styles.recentUpdates}>RecentStatus </Text>\
       {RecentStatusData.map((item) => {
+        console.log("testing log.");
         return (
           <>
             <TouchableOpacity>
