@@ -5,7 +5,7 @@ import { Image } from "react-native";
 import profile from "../assets/user1.jpeg";
 import { useNavigation } from "@react-navigation/native";
 
-const ChatHeader = () => {
+const ChatHeader = ({ user }) => {
   const navigation = useNavigation();
 
   return (
@@ -19,8 +19,8 @@ const ChatHeader = () => {
             size={24}
           />
         </TouchableOpacity>
-        <Image source={profile} style={Styles.profileImage} />
-        <Text style={Styles.username}>Nayera</Text>
+        <Image source={user.profile} style={Styles.profileImage} />
+        <Text style={Styles.username}>{user.name}</Text>
       </View>
       <View style={Styles.innerContainer2}>
         <VectorIcon

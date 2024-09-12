@@ -10,17 +10,15 @@ const ViewedStatus = () => {
       <Text style={Styles.viewdUpdates}>Viewed updates</Text>
       {ViewedStatusData.map((item) => {
         return (
-          <>
-            <View style={Styles.storySection} key={item.key}>
-              <View style={Styles.imgStory}>
-                <Image source={item.storyImg} style={Styles.statusStyle} />
-              </View>
-              <View>
-                <Text style={Styles.username}>{item.name}</Text>
-                <Text style={Styles.time}>{item.time}</Text>
-              </View>
+          <View style={Styles.storySection} key={item.id}>
+            <View style={Styles.imgStory}>
+              <Image source={item.storyImg} style={Styles.statusStyle} />
             </View>
-          </>
+            <View>
+              <Text style={Styles.username}>{item.name}</Text>
+              <Text style={Styles.time}>{item.time}</Text>
+            </View>
+          </View>
         );
       })}
     </>

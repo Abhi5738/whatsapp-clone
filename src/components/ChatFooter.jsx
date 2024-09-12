@@ -16,7 +16,7 @@ const ChatFooter = () => {
 
   const changeHandler = (value) => {
     setMessage(value);
-    setSendEnable(true);
+    setSendEnable(value.trim().length > 0);
   };
 
   const onSend = () => {
@@ -31,44 +31,40 @@ const ChatFooter = () => {
           <VectorIcon
             name="emoji-emotions"
             type="MaterialIcons"
-            size={22}
-            color={Colors.white}
+            size={24}
+            color={Colors.textGrey}
+            style={Styles.icon}
           />
           <TextInput
-            placeholder="Message"
+            placeholder="Type a message"
             style={Styles.inputBox}
             multiline
+            maxHeight={100}
+            scrollEnabled
             placeholderTextColor={Colors.textGrey}
-            onChangeText={(value) => changeHandler(value)}
+            onChangeText={changeHandler}
             value={message}
           />
         </View>
         <View style={Styles.threeIcon}>
+          <VectorIcon
+            name="attachment"
+            type="Entypo"
+            size={20}
+            color={Colors.textGrey}
+          />
           {sendEnable ? (
-            <Text style={{ marginHorizontal: 20 }}></Text>
+            ""
           ) : (
             <>
               <VectorIcon
                 name="camera"
                 type="Entypo"
-                size={18}
-                color={Colors.white}
-              />
-              <VectorIcon
-                name="rupee"
-                type="FontAwesome"
-                size={18}
-                color={Colors.white}
+                size={20}
+                color={Colors.textGrey}
               />
             </>
           )}
-
-          <VectorIcon
-            name="attachment"
-            type="Entypo"
-            size={18}
-            color={Colors.white}
-          />
         </View>
       </View>
       <View style={Styles.rightContainer}>
@@ -77,7 +73,7 @@ const ChatFooter = () => {
             <VectorIcon
               name="send"
               type="MaterialCommunityIcons"
-              size={24}
+              size={20}
               color={Colors.white}
             />
           </TouchableOpacity>
@@ -85,7 +81,7 @@ const ChatFooter = () => {
           <VectorIcon
             name="microphone"
             type="MaterialCommunityIcons"
-            size={24}
+            size={20}
             color={Colors.white}
           />
         )}
@@ -96,43 +92,63 @@ const ChatFooter = () => {
 
 const Styles = StyleSheet.create({
   container: {
-    paddingVertical: 2,
+    paddingVertical: 6,
+    paddingHorizontal: 10,
     flexDirection: "row",
     alignItems: "center",
-    textAlign: "center",
-    justifyContent: "space-around",
+    backgroundColor: Colors.background,
+    justifyContent: "center",
   },
 
   leftContainer: {
-    width: "85%",
     flexDirection: "row",
     backgroundColor: Colors.primaryColor,
-    padding: 7,
-    borderRadius: 30,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    borderRadius: 25,
     alignItems: "center",
     justifyContent: "space-between",
+    flex: 1,
+    marginRight: 10,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.2,
+    shadowRadius: 1.41,
+    elevation: 2, // Adds a shadow effect
   },
   row: {
     flexDirection: "row",
-    alignItems: "flex-end",
-    gap: 5,
+    alignItems: "center",
+    gap: 10,
+    flex: 1,
   },
   threeIcon: {
     flexDirection: "row",
-    gap: 8,
-    alignItems: "flex-end",
+    gap: 10,
+    alignItems: "center",
   },
   rightContainer: {
     backgroundColor: Colors.teal,
-    padding: 10,
-    borderRadius: 100,
+    padding: 12,
+    borderRadius: 50,
+    justifyContent: "center",
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.2,
+    shadowRadius: 1.41,
+    elevation: 3, // Adds a shadow effect
   },
   inputBox: {
-    width: 200,
-    fontSize: 17,
-    color: Colors.white,
-    color: Colors.white,
+    flex: 1, // takes up remaining space in the row
     fontSize: 16,
+    color: Colors.white,
+    padding: 0,
+    margin: 0,
+    maxHeight: 100, // Set max height to control the input box's height
+  },
+  icon: {
+    marginRight: 8, // spacing between icon and input
   },
 });
 

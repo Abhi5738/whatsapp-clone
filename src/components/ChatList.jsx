@@ -7,15 +7,15 @@ import { useNavigation } from "@react-navigation/native";
 
 const ChatList = () => {
   const navigation = useNavigation();
-  const onNavigate = () => {
-    navigation.navigate("ChatScreen");
+  const onNavigate = (user) => {
+    navigation.navigate("ChatScreen", { user });
   };
   return (
     <>
       {ChatListData.map((item) => {
         return (
           <View key={item.id}>
-            <TouchableOpacity onPress={onNavigate}>
+            <TouchableOpacity onPress={() => onNavigate(item)}>
               <View style={styles.container}>
                 <View style={styles.leftContainer}>
                   <Image source={item.profile} style={styles.profileImg} />

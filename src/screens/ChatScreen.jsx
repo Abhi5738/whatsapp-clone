@@ -3,10 +3,11 @@ import ChatHeader from "../components/ChatHeader";
 import ChatBody from "../components/ChatBody";
 import ChatFooter from "../components/ChatFooter";
 import wallpaper from "../assets/wallpaper.jpeg";
-const ChatScreen = () => {
+const ChatScreen = ({ route }) => {
+  const { user } = route.params;
   return (
     <View style={Styles.container}>
-      <ChatHeader />
+      <ChatHeader user={user} />
       <ImageBackground source={wallpaper} style={Styles.wallpaper}>
         <ChatBody />
       </ImageBackground>
@@ -24,7 +25,7 @@ const Styles = StyleSheet.create({
     height: "auto",
     padding: 12,
     paddingHorizontal: 12,
-    paddingBottom:5
+    paddingBottom: 5,
   },
 });
 

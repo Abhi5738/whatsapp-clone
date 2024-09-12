@@ -53,13 +53,13 @@ const ChatBody = () => {
       >
         {messageData.map((item) => {
           return (
-            <>
+            <View key={item.id}>
               {item.id === userId ? (
                 <UserMessageView msg={item.message} time={item.time} />
               ) : (
                 <OtherUserMessageView msg={item.message} time={item.time} />
               )}
-            </>
+            </View>
           );
         })}
       </ScrollView>

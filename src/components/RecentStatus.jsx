@@ -8,11 +8,10 @@ const RecentStatus = () => {
   const [showStatusModal, setShowStatusModal] = useState(true);
   return (
     <View>
-      <Text style={Styles.recentUpdates}>RecentStatus </Text>\
+      <Text style={Styles.recentUpdates}>RecentStatus </Text>
       {RecentStatusData.map((item) => {
-        console.log("testing log.");
         return (
-          <>
+          <View key={item.id}>
             <TouchableOpacity>
               <View style={Styles.storySection} key={item.key}>
                 <View style={Styles.imgStory}>
@@ -29,7 +28,7 @@ const RecentStatus = () => {
               setShowStatusModal={setShowStatusModal}
               item={item}
             />
-          </>
+          </View>
         );
       })}
     </View>
